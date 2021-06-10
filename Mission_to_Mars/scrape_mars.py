@@ -21,12 +21,14 @@ client = pymongo.MongoClient(conn)
 db = client.mars_db
 collection = db.items
 
+def init_browser():
 executable_path = {'executable_path': ChromeDriverManager().install()}
 browser = Browser('chrome', **executable_path, headless=False)
 
 
 # ## NASA Mars News
 
+def scrape():
 url = "https://mars.nasa.gov/news/"
 browser.visit(url)
 
